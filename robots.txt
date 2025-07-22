@@ -1,9 +1,32 @@
-# Allow all web crawlers to access all content
+# Allow all web crawlers and AI/LLM bots full access
 User-agent: *
 Allow: /
 
-# Specifically allow common file types
+# Explicitly allow common AI/LLM user agents
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: AI2Bot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: OpenAI-SearchBot
+Allow: /
+
+# Allow all file types
 Allow: /*.html
 Allow: /*.txt
 Allow: /*.pdf
-Allow: /favicon.ico
+Allow: /*.ico
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.css
+Allow: /*.js
