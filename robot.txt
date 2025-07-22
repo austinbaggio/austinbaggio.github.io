@@ -1,0 +1,9 @@
+# Allow all web crawlers to access all content
+User-agent: *
+Allow: /
+
+# Specifically allow common file types
+Allow: /*.html
+Allow: /*.txt
+Allow: /*.pdf
+Allow: /favicon.ico
