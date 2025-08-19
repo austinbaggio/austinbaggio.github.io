@@ -1,6 +1,6 @@
 # Shared Memory for Agents
 
-![Agent Swarms](https://projectuntitled.xyz/images/agent_swarms.gif)
+![Agent Swarms](./images/agent_swarms.gif)
 
 Instead of one siloed, stateless agent or LLM, imagine a world where you have access to the shared memory of millions - all connected through a single, cohesive system.
 
