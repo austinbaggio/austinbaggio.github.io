@@ -89,9 +89,6 @@ async function main() {
 
 Private alpha starts next week.
 We’re letting in builders gradually, get on the [list](https://forms.gle/szVzhmpLdG6peDgH9) early.
-
-<ul style="list-style: none; padding-left: 0;">
-  <li>→ <a href="https://forms.gle/szVzhmpLdG6peDgH9">Sign up for early access</a></li>
-  <li>→ <a href="https://x.com/untitled_ZK/">Follow along on X</a></li>
-  <li>→ Ask questions, share feedback</li> 
-</ul>
+  → <a href="https://forms.gle/szVzhmpLdG6peDgH9">Sign up for early access</a>
+  → <a href="https://x.com/untitled_ZK/">Follow along on X</a>
+  → Ask questions, share feedback. @untitled_zk on X, our DMs are open.
