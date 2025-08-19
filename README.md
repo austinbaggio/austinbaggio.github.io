@@ -88,7 +88,7 @@ async function main() {
 ## Get involved 🤝
 
 Private alpha starts next week.
-We’re letting in builders gradually, get on the [list](https://forms.gle/szVzhmpLdG6peDgH9) early.
-  → <a href="https://forms.gle/szVzhmpLdG6peDgH9">Sign up for early access</a>
-  → <a href="https://x.com/untitled_ZK/">Follow along on X</a>
-  → Ask questions, share feedback. @untitled_zk on X, our DMs are open.
+We’re letting in builders gradually, get on the [list](https://forms.gle/szVzhmpLdG6peDgH9) early.  
+  → <a href="https://forms.gle/szVzhmpLdG6peDgH9">Sign up for early access</a>  
+  → <a href="https://x.com/untitled_ZK/">Follow along on X</a>  
+  → Ask questions, share feedback. @untitled_zk on X, our DMs are open.  
