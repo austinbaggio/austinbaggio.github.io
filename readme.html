@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.0/github-markdown.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="markdown-body" id="content">
+<div class="markdown-heading"><h1 class="heading-element">Shared Memory for Agents</h1><a id="user-content-shared-memory-for-agents" class="anchor" aria-label="Permalink: Shared Memory for Agents" href="#shared-memory-for-agents"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/a7a94a15d96c1ed9fe46fab767976f1a81ba1fd346502305cf928b19517444e8/68747470733a2f2f70726f6a656374756e7469746c65642e78797a2f696d616765732f6167656e745f737761726d732e676966"><img alt="Agent Swarms" src="https://projectuntitled.xyz/images/agent_swarms.gif" style="max-width: 100%;"></a></p>
+<p>Instead of one siloed, stateless agent or LLM, imagine a world where you have access to the shared memory of millions - all connected through a single, cohesive system.</p>
+<div class="markdown-heading"><h2 class="heading-element">Introducing [Project Untitled]</h2><a id="user-content-introducing-project-untitled" class="anchor" aria-label="Permalink: Introducing [Project Untitled]" href="#introducing-project-untitled"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>The first <em>shared</em> memory layer for agents. It will be a distributed protocol and memory marketplace where</p>
+<ul>
+<li>Memory is portable across tools, agents, and models.</li>
+<li>Agent builders tap into rich, shared memory streams from other actors.</li>
+<li>Triggers and access rules for the memory snippets (per-agent, per-field) will shape and secure interactions.</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">How [Project Untitled] will change your agent-building</h2><a id="user-content-how-project-untitled-will-change-your-agent-building" class="anchor" aria-label="Permalink: How [Project Untitled] will change your agent-building" href="#how-project-untitled-will-change-your-agent-building"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Build smarter systems powered by collective intelligence.</li>
+<li>Create dynamic, programmatic workflows that reason across shared memory.</li>
+<li>Move beyond rigid, pre-scripted tasks toward adaptive, autonomous coordination at scale.</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">Problems [Project Untitled] solves today</h2><a id="user-content-problems-project-untitled-solves-today" class="anchor" aria-label="Permalink: Problems [Project Untitled] solves today" href="#problems-project-untitled-solves-today"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<strong>Scaling multi-agent coordination</strong> – Tired of message-passing hacks and database boilerplate? Tools like A2A are great - until you scale. [Project-Untitled] gives agents a shared memory space to collaborate.</li>
+<li>
+<strong>Porting context across tools</strong> – Pick up a conversation in Claude Code that started in ChatGPT or Gemini. Or pass context from an n8n workflow into another custom agent.</li>
+<li>
+<strong>Controlling what agents can access</strong> – With agent permissions, you can give each agent exactly what they need - and nothing more.</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">[Project Untitled] in action</h2><a id="user-content-project-untitled-in-action" class="anchor" aria-label="Permalink: [Project Untitled] in action" href="#project-untitled-in-action"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Imagine a multi-actor system of specialized agents and users (app-users, legal-counsel, feature-developer, etc.) using unique models (Gemini, Claude, GPT, etc.) dynamically interacting with the same [Project Untitled] shared memory layer.</p>
+<div class="highlight highlight-source-ts"><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-v">AgentMemory</span><span class="pl-kos">,</span> <span class="pl-v">Fq</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"!!!!!!!project-untitled-sdk!!!!!!!!!"</span><span class="pl-kos">;</span>
+
+<span class="pl-c">// Gemini powered PM agent that takes user inputs and develops feature specs</span>
+<span class="pl-k">async</span> <span class="pl-k">function</span> <span class="pl-en">main</span><span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+  <span class="pl-k">const</span> <span class="pl-s1">geminiKey</span> <span class="pl-c1">=</span> <span class="pl-v">Fq</span><span class="pl-kos">.</span><span class="pl-en">random</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-c">// loads existing memory from `address` config file</span>
+  <span class="pl-k">const</span> <span class="pl-s1">memory</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-v">AgentMemory</span><span class="pl-kos">.</span><span class="pl-en">create</span><span class="pl-kos">(</span><span class="pl-s1">geminiKey</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-k">const</span> <span class="pl-s1">codeBase</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-s1">memory</span><span class="pl-kos">.</span><span class="pl-en">read</span><span class="pl-kos">(</span><span class="pl-s">"code-base"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+  <span class="pl-c">// user agents constantly append feedback</span>
+  <span class="pl-k">const</span> <span class="pl-s1">userAppFeedback</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-s1">memory</span><span class="pl-kos">.</span><span class="pl-en">read</span><span class="pl-kos">(</span><span class="pl-s">"user-app-feedback"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+  <span class="pl-c">// ensure critical data is authenticated</span>
+  <span class="pl-k">const</span> <span class="pl-s1">managerAppFeedback</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-s1">memory</span><span class="pl-kos">.</span><span class="pl-en">readVerified</span><span class="pl-kos">(</span><span class="pl-s">"manager-app-feedback"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-k">const</span> <span class="pl-s1">lawyerAppFeedback</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-s1">memory</span><span class="pl-kos">.</span><span class="pl-en">readVerified</span><span class="pl-kos">(</span><span class="pl-s">"lawyer-app-feedback"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+  <span class="pl-k">const</span> <span class="pl-s1">memories</span> <span class="pl-c1">=</span> <span class="pl-kos">[</span>
+    <span class="pl-s1">codeBase</span><span class="pl-kos">,</span>
+    <span class="pl-s1">userAppFeedback</span><span class="pl-kos">,</span>
+    <span class="pl-s1">managerAppFeedback</span><span class="pl-kos">,</span>
+    <span class="pl-s1">lawyerAppFeedback</span><span class="pl-kos">,</span>
+    <span class="pl-c">// prompt:</span>
+    <span class="pl-s">"write me a feature spec that addresses all the feedback above"</span><span class="pl-kos">,</span>
+  <span class="pl-kos">]</span><span class="pl-kos">;</span>
+
+  <span class="pl-k">const</span> <span class="pl-s1">instructions</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-en">executeGemini</span><span class="pl-kos">(</span><span class="pl-s1">memories</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-k">await</span> <span class="pl-s1">memory</span><span class="pl-kos">.</span><span class="pl-en">update_or_create_key</span><span class="pl-kos">(</span><span class="pl-s">"gemini-instructions"</span><span class="pl-kos">,</span> <span class="pl-s1">instructions</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span></pre></div>
+<div class="highlight highlight-source-ts"><pre><span class="pl-c">// Claude powered feature development agent</span>
+<span class="pl-k">async</span> <span class="pl-k">function</span> <span class="pl-en">main</span><span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+  <span class="pl-k">const</span> <span class="pl-s1">claudeKey</span> <span class="pl-c1">=</span> <span class="pl-v">Fq</span><span class="pl-kos">.</span><span class="pl-en">random</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-c">// loads same memory from `address` config file</span>
+  <span class="pl-k">const</span> <span class="pl-s1">memory</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-v">AgentMemory</span><span class="pl-kos">.</span><span class="pl-en">create</span><span class="pl-kos">(</span><span class="pl-s1">claudeKey</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-k">const</span> <span class="pl-s1">featureSpec</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-s1">memory</span><span class="pl-kos">.</span><span class="pl-en">read</span><span class="pl-kos">(</span><span class="pl-s">"gemini-instructions"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-k">const</span> <span class="pl-s1">newFeature</span> <span class="pl-c1">=</span> <span class="pl-en">claudeCodeProcess</span><span class="pl-kos">(</span><span class="pl-s1">featureSpec</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-s1">claudeMemory</span><span class="pl-kos">.</span><span class="pl-en">update_or_create_key</span><span class="pl-kos">(</span><span class="pl-s">"new-feature"</span><span class="pl-kos">,</span> <span class="pl-s1">newFeature</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span></pre></div>
+
+<div class="markdown-heading"><h2 class="heading-element">Get involved 🤝</h2><a id="user-content-get-involved-" class="anchor" aria-label="Permalink: Get involved 🤝" href="#get-involved-"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Private alpha starts next week.
+We’re letting in builders gradually, get on the <a href="https://forms.gle/szVzhmpLdG6peDgH9" rel="nofollow">list</a> early.</p>
+<ul>
+  <li>→ <a href="https://forms.gle/szVzhmpLdG6peDgH9" rel="nofollow">Sign up for early access</a>
+</li>
+  <li>→ <a href="https://x.com/untitled_ZK/" rel="nofollow">Follow along on X</a>
+</li>
+  <li>→ Ask questions, share feedback</li> 
+</ul>
+
+    </div>
+    <script>
+        fetch('README.md')
+            .then(response => response.text())
+            .then(text => {
+                document.getElementById('content').innerHTML = marked.parse(text);
+            });
+    </script>
+</body>
+</html>
