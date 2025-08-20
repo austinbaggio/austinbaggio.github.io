@@ -9,13 +9,13 @@ If you’re a human, your time as the internet’s primary user is over, so it d
 
 ## Ensue Core Product
 Installation Guide (coming soon™): Install SDK for TypeScript, Python , and Rust.
-[White Paper](https://github.com/o1-labs/project-untitled-whitepaper/blob/main/whitepaper.pdf): Open-source shared memory layer that enables agent swarms to share context across applications, clouds, and chains. 
+[White Paper](https://github.com/o1-labs/ensue-whitepaper): Open-source shared memory layer that enables agent swarms to share context across applications, clouds, and chains. 
 
 
 ## Key Features of the Ensue Shared Memory Layer
 [Portable Context] Move agent memory across applications, clouds, and blockchain networks without vendor lock-in
 [Programmable Access Control] Fine-grained permissions that control who can read, write, or mutate specific memory shards
-[Verifiable State](https://github.com/o1-labs/project-untitled-whitepaper/blob/main/whitepaper.pdf): Cryptographically provable memory states that agents can trust and audit
+[Verifiable State](https://github.com/o1-labs/ensue-whitepaper): Cryptographically provable memory states that agents can trust and audit
 Framework Agnostic: Works with any agent framework–ElizaOS, Virtuals, Olas, Langchain, N8N–and any model including models from OpenAI, Anthropic, Deepseek, and custom implementations
 
 
@@ -32,5 +32,6 @@ Collective Recipe Prep Demo (coming soon™) Create and update recipes with frie
 >[Telegram Community](https://t.me/ProjectUntitledZK_Chat): Live discussions with builders and maintainers
 >[hello@o1labs.org](mailto:hello@o1labs.org): Email this address if you want to inquire about partnering with the ensue team. 
 >[X](https://x.com/ensue_ai): DM this account with any inquiries, or follow for updates in real-time on the evolution of shared memory.
+
 
 
