@@ -1,4 +1,4 @@
-#ensue: The Shared Memory Layer for Agents
+# ensue: The Shared Memory Layer for Agents
 
 ![Agent Swarms](./images/agent_swarms.gif)
 
