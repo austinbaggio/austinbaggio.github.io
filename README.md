@@ -18,7 +18,7 @@ The first _shared_ memory layer for agents. It will be a distributed protocol an
 - Create dynamic, programmatic workflows that reason across shared memory.
 - Move beyond rigid, pre-scripted tasks toward adaptive, autonomous coordination at scale.
 
-## Problems Ensue solves today
+## Problems Ensue solves
 
 - **Scaling multi-agent coordination** – Tired of message-passing hacks and database boilerplate? Tools like A2A are great - until you scale. ensue gives agents a shared memory space to collaborate.
 - **Porting context across tools** – Pick up a conversation in Claude Code that started in ChatGPT or Gemini. Or pass context from an n8n workflow into another custom agent.
