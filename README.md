@@ -90,5 +90,4 @@ async function main() {
 Private alpha starts next week.
 We’re letting in builders gradually, get on the [list](https://forms.gle/szVzhmpLdG6peDgH9) early.  
   → <a href="https://forms.gle/szVzhmpLdG6peDgH9">Sign up for early access</a>  
-  →  
   → Ask questions, share feedback. <a href="https://x.com/ensue_ai/">@ensue_ai on X</a>, our DMs are open.  
