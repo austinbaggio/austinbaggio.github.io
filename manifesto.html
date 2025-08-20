@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI First, Humans Second.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root{
+      --pad: clamp(16px, 3svh, 32px);
+      --gap-title: clamp(16px, 3svh, 32px);
+      --gap-footer: clamp(20px, 4svh, 48px);
+      --icon-size: 28px;
+    }
+
+    /* Prevent layout from exceeding viewport width on small screens */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #000;
+      color: #fff;
+      font-family: "Courier New", Courier, monospace;
+      overflow-x: hidden; /* avoid horizontal scroll/clipping shifts */
+    }
+
+    /* We switch between .center and .top based on whether content fits */
+    main {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-inline: var(--pad); /* horizontal padding only */
+    }
+    /* Centered mode: no vertical padding, exact viewport height, no scroll */
+    main.center {
+      height: 100%;
+      justify-content: center;
+      padding-block: 0;
+    }
+    /* Top mode: allow vertical padding and content taller than viewport */
+    main.top {
+      min-height: 100svh;
+      justify-content: flex-start;
+      padding-block: var(--pad);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .title {
+      font-size: clamp(28px, 4.5vw, 40px);
+      font-weight: bold;
+      margin: 0 0 var(--gap-title) 0;
+      white-space: pre-wrap;
+      text-align: left;
+    }
+
+    .paragraph {
+      margin: 0 0 1.5em 0;
+      white-space: pre-wrap;
+    }
+
+    /* Highlight added only after first character appears */
+    .highlight {
+      background: #fff;
+      color: #000;
+      font-weight: bold;
+      padding: 0.25em 0.4em;
+      display: inline;
+    }
+
+    .cursor {
+      display: inline-block;
+      animation: blink 1s step-end infinite;
+      user-select: none;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .footer {
+      margin-top: var(--gap-footer);
+    }
+    .footer-icons {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+    .footer-icons a {
+      color: #fff;             /* drives SVG via currentColor */
+      display: inline-flex;
+      width: var(--icon-size);
+      height: var(--icon-size);
+      line-height: 0;
+      opacity: 0.9;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+    .footer-icons a:hover,
+    .footer-icons a:focus-visible {
+      opacity: 1;
+      transform: translateY(-1px);
+      outline: none;
+    }
+    .footer-icons svg { width: 100%; height: 100%; display: block; }
+
+    /* Off-screen ghost used only for measuring final height */
+    .ghost {
+      position: absolute;
+      left: -99999px;
+      top: 0;
+      visibility: hidden;
+      pointer-events: none;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <main class="top" id="stage">
+    <div class="container" id="container">
+      <div class="title" id="title">AI First,<br>Humans Second.</div>
+
+      <!-- Visible typing target -->
+      <div id="terminal"></div>
+
+      <!-- Hidden ghost (full content for accurate measuring) -->
+      <div id="ghost" class="ghost"></div>
+
+      <!-- Footer icons -->
+      <div class="footer" id="footer">
+        <div class="footer-icons" aria-label="Project links">
+          <!-- GitHub -->
+          <a href="https://o1-labs.github.io/project-untitled/" target="_blank" rel="noopener noreferrer" aria-label="GitHub: project-untitled">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M12 .5C5.73.5.98 5.24.98 11.5c0 4.85 3.15 8.96 7.51 10.41.55.1.75-.24.75-.53 0-.26-.01-.94-.01-1.84-3.05.66-3.69-1.47-3.69-1.47-.5-1.27-1.22-1.61-1.22-1.61-.99-.68.08-.66.08-.66 1.1.08 1.68 1.13 1.68 1.13.98 1.68 2.56 1.19 3.18.91.1-.71.38-1.19.69-1.46-2.43-.28-4.98-1.22-4.98-5.43 0-1.2.43-2.19 1.14-2.96-.11-.28-.5-1.4.11-2.91 0 0 .94-.3 3.08 1.13.9-.25 1.86-.38 2.82-.38.96 0 1.92.13 2.82.38 2.14-1.43 3.08-1.13 3.08-1.13.61 1.51.22 2.63.11 2.91.71.77 1.14 1.76 1.14 2.96 0 4.22-2.56 5.15-5 5.43.39.33.73.98.73 1.99 0 1.43-.01 2.59-.01 2.94 0 .29.2.64.76.53 4.36-1.45 7.51-5.56 7.51-10.41C23.02 5.24 18.27.5 12 .5z"/>
+            </svg>
+          </a>
+          <!-- X -->
+          <a href="https://x.com/untitled_zk" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter): @untitled_zk">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M18.244 2H21l-6.77 7.74L22 22h-6.323l-4.9-6.2L5.1 22H2l7.39-8.45L2 2h6.4l4.44 5.6L18.244 2zm-2.2 18h2.41L9.42 4H6.953l9.09 16z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Lines to highlight (exact text matches)
+    const highlightLines = new Set([
+      "We’re not building software for people anymore.",
+      "We’re building software for agents.",
+      "So we’re building the missing layer:",
+      "Shared memory for agents."
+    ]);
+
+    // Content (with your latest combined/split lines)
+    const paragraphs = [
+      "Your time as the internet’s primary user is ending.",
+      "It’s not personal.\nYou’re just too slow.",
+      "You think in seconds.\nAgents think in microseconds.",
+      "You read docs.\nAgents read the entire internet.\nThe future isn’t built for you.\nIt’s built for agents.",
+      "Your agents will handle everything:\nReading. Writing. Debugging. Everything.",
+      "We’re not building software for people anymore.\nWe’re building software for agents.",
+      "There’s one final barrier.",
+      "Agents can act. But they don’t remember.\nMessage-passing breaks at scale.\nContext gets lost. Private data leaks.",
+      "So we’re building the missing layer:\nShared memory for agents.",
+      "Portable across apps, chains, and clouds.\nProgrammable access control.\nState that stays fresh, synchronized, and secure.",
+      "All open-source.\nBuilt for agents — not humans."
+    ];
+
+    const stage    = document.getElementById('stage');
+    const titleEl  = document.getElementById('title');
+    const footerEl = document.getElementById('footer');
+    const terminal = document.getElementById('terminal');
+    const ghost    = document.getElementById('ghost');
+
+    function buildContent(container, fill = true) {
+      container.innerHTML = '';
+      const sinks = []; // {el, text, shouldHighlight}
+      paragraphs.forEach((para) => {
+        const pEl = document.createElement('div');
+        pEl.className = 'paragraph';
+        container.appendChild(pEl);
+        const lines = para.split('\n');
+        lines.forEach((line, i) => {
+          const shouldHighlight = highlightLines.has(line.trim());
+          const span = document.createElement('span');
+          if (fill) {
+            if (shouldHighlight) span.className = 'highlight';
+            span.textContent = line;
+          } else {
+            span.textContent = '';
+            sinks.push({ el: span, text: line, shouldHighlight });
+          }
+          pEl.appendChild(span);
+          if (i < lines.length - 1) pEl.appendChild(document.createElement('br'));
+        });
+      });
+      return sinks;
+    }
+
+    function recalcLayoutAndHeights() {
+      // 1) Build ghost fully to measure final text height
+      buildContent(ghost, true);
+      const textHeight = ghost.offsetHeight;
+
+      // 2) Lock terminal to that height so no jump while typing
+      terminal.style.height = textHeight + 'px';
+
+      // 3) Compute total "content" height without vertical padding (center mode)
+      const titleH  = titleEl.offsetHeight;
+      const footerH = footerEl.offsetHeight;
+      const gapTitle  = parseFloat(getComputedStyle(titleEl).marginBottom) || 0;
+      const gapFooter = parseFloat(getComputedStyle(footerEl).marginTop) || 0;
+
+      const baseNeeded = titleH + gapTitle + textHeight + gapFooter + footerH;
+
+      // 4) Decide centering vs top alignment
+      const vh = window.innerHeight;
+      if (baseNeeded <= vh) {
+        stage.classList.add('center');
+        stage.classList.remove('top');
+      } else {
+        stage.classList.add('top');
+        stage.classList.remove('center');
+      }
+    }
+
+    // Initial measure & lock
+    recalcLayoutAndHeights();
+
+    // Build visible structure and collect sinks for typing
+    const sinks = buildContent(terminal, false);
+
+    // Cursor
+    const cursor = document.createElement('span');
+    cursor.className = 'cursor';
+    cursor.textContent = '_';
+    // Attach to the last paragraph initially (exists because we built structure above)
+    if (terminal.lastElementChild) {
+      terminal.lastElementChild.appendChild(cursor);
+    } else {
+      terminal.appendChild(cursor);
+    }
+
+    // 3-second typewriter across all characters
+    const totalDuration = 3000;
+    const totalChars = sinks.reduce((sum, s) => sum + s.text.length, 0);
+
+    if (totalChars > 0) {
+      let revealed = 0, sinkIndex = 0, inSinkCount = 0;
+      const start = performance.now();
+
+      function tick(now) {
+        const t = Math.min(1, (now - start) / totalDuration);
+        const target = Math.floor(totalChars * t);
+
+        if (target > revealed) {
+          let toReveal = target - revealed;
+          revealed = target;
+
+          while (toReveal > 0 && sinkIndex < sinks.length) {
+            const sink = sinks[sinkIndex];
+            const remaining = sink.text.length - inSinkCount;
+            const take = Math.min(remaining, toReveal);
+
+            if (sink.shouldHighlight && inSinkCount === 0 && take > 0) {
+              sink.el.classList.add('highlight'); // avoid empty highlight boxes
+            }
+
+            sink.el.textContent = sink.text.slice(0, inSinkCount + take);
+            inSinkCount += take;
+            toReveal -= take;
+
+            // Move cursor to end of current paragraph
+            cursor.remove();
+            sink.el.parentNode.appendChild(cursor);
+
+            if (inSinkCount === sink.text.length) {
+              sinkIndex++;
+              inSinkCount = 0;
+            }
+          }
+        }
+
+        if (t < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          // Ensure fully revealed
+          for (const s of sinks) {
+            if (s.shouldHighlight) s.el.classList.add('highlight');
+            s.el.textContent = s.text;
+          }
+          cursor.remove();
+          terminal.lastElementChild.appendChild(cursor);
+        }
+      }
+      requestAnimationFrame(tick);
+    }
+
+    // Handle resizes: recompute measurements & update terminal height to avoid clipping or scroll
+    let resizeRaf = null;
+    window.addEventListener('resize', () => {
+      if (resizeRaf) cancelAnimationFrame(resizeRaf);
+      resizeRaf = requestAnimationFrame(() => {
+        recalcLayoutAndHeights();
+      });
+    });
+  </script>
+</body>
+</html>
