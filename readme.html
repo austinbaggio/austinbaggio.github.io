@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>[Project Untitled]</title>
+
+  <!-- README-like styling (dark, self-contained) -->
+  <style>
+    :root {
+      --fg: #eeeeee;
+      --bg: #000000;
+      --muted: #888888;
+      --border: #333333;
+      --link: #58a6ff;
+      --code-bg: #111111;
+    }
+
+    html, body {
+      background: var(--bg);
+      color: var(--fg);
+      margin: 0;
+      padding: 0;
+      font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .markdown-body {
+      max-width: 860px;
+      margin: 40px auto;
+      padding: 0 24px;
+    }
+
+    .markdown-body h1,
+    .markdown-body h2 {
+      font-weight: 600;
+      line-height: 1.25;
+      margin: 24px 0 16px;
+      padding-bottom: .3em;
+      border-bottom: 1px solid var(--border);
+    }
+    .markdown-body h1 { font-size: 2.5rem; }
+    .markdown-body h2 { font-size: 1.75rem; }
+
+    .markdown-body p { margin: 0 0 16px; color: var(--fg); }
+    .markdown-body ul { padding-left: 2em; margin: 0 0 16px; }
+    .markdown-body li { margin: .25em 0; }
+    .markdown-body em { color: var(--fg); font-style: italic; }
+    .markdown-body strong { color: var(--fg); }
+
+    .markdown-body a {
+      color: var(--link);
+      text-decoration: none;
+    }
+    .markdown-body a:hover { text-decoration: underline; }
+
+    .markdown-body img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 8px 0 16px;
+      border-radius: 6px;
+    }
+
+    pre, code {
+      font-family:
+        ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+      font-size: 0.95rem;
+      tab-size: 2;
+    }
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px;
+      overflow: auto;
+      margin: 0 0 16px;
+    }
+    code {
+      background: var(--code-bg);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 4px;
+      padding: .2em .4em;
+    }
+    pre code {
+      background: transparent;
+      border: 0;
+      padding: 0;
+      white-space: pre;
+      color: var(--fg);
+      font-weight: 400;
+    }
+
+    .tok-com  { color: var(--muted); font-style: italic; }
+    .tok-str  { color: #a5d6ff; font-weight: 400; }
+    .tok-num  { color: #ffab70; font-weight: 400; }
+    .tok-kw   { color: #d2a8ff; font-weight: 400; }
+    .tok-type { color: #79c0ff; font-weight: 400; }
+    .tok-func { color: #ffa657; font-weight: 400; }
+  </style>
+</head>
+<body>
+  <main class="markdown-body">
+    <h1>Shared Memory for Agents</h1>
+
+    <img
+      src="https://projectuntitled.xyz/images/agent_swarms.gif"
+      alt="Agent swarms animation"
+    />
+
+    <p>
+      Instead of one siloed, stateless agent or LLM, imagine a world where you have access to
+      the shared memory of millions - all connected through a single, cohesive system.
+    </p>
+
+    <h2>Introducing [Project Untitled]</h2>
+
+    <p>
+      The first <em>shared</em> memory layer for agents. It will be a distributed protocol
+      and memory marketplace where
+    </p>
+    <ul>
+      <li>Memory is portable across tools, agents, and models.</li>
+      <li>Agent builders tap into rich, shared memory streams from other actors.</li>
+      <li>Triggers and access rules for the memory snippets (per-agent, per-field) will shape and secure interactions.</li>
+    </ul>
+
+    <h2>How [Project Untitled] will change your agent-building</h2>
+    <ul>
+      <li>Build smarter systems powered by collective intelligence.</li>
+      <li>Create dynamic, programmatic workflows that reason across shared memory.</li>
+      <li>Move beyond rigid, pre-scripted tasks toward adaptive, autonomous coordination at scale.</li>
+    </ul>
+
+    <h2>Problems [Project Untitled] solves today</h2>
+    <ul>
+      <li><strong>Scaling multi-agent coordination</strong> – Tired of message-passing hacks and database boilerplate? Tools like A2A are great - until you scale. [Project-Untitled] gives agents a shared memory space to collaborate.</li>
+      <li><strong>Porting context across tools</strong> – Pick up a conversation in Claude Code that started in ChatGPT or Gemini. Or pass context from an n8n workflow into another custom agent.</li>
+      <li><strong>Controlling what agents can access</strong> – With agent permissions, you can give each agent exactly what they need - and nothing more.</li>
+    </ul>
+
+    <h2>[Project Untitled] in action</h2>
+    <p>
+      Imagine a multi-actor system of specialized agents and users (app-users, legal-counsel, feature-developer, etc.)
+      using unique models (Gemini, Claude, GPT, etc.) dynamically interacting with the same [Project Untitled] shared memory layer.
+    </p>
+
+    <!-- Code Block 1 -->
+    <pre><code class="lang-ts">import { AgentMemory, Fq } from "!!!!!!!project-untitled-sdk!!!!!!!!!";
+
+// Gemini powered PM agent that takes user inputs and develops feature specs
+async function main() {
+  const geminiKey = Fq.random();
+  // loads existing memory from `address` config file
+  const memory = await AgentMemory.create(geminiKey);
+  const codeBase = await memory.read("code-base");
+
+  // user agents constantly append feedback
+  const userAppFeedback = await memory.read("user-app-feedback");
+
+  // ensure critical data is authenticated
+  const managerAppFeedback = await memory.readVerified("manager-app-feedback");
+  const lawyerAppFeedback = await memory.readVerified("lawyer-app-feedback");
+
+  const memories = [
+    codeBase,
+    userAppFeedback,
+    managerAppFeedback,
+    lawyerAppFeedback,
+    // prompt:
+    "write me a feature spec that addresses all the feedback above",
+  ];
+
+  const instructions = await executeGemini(memories);
+  await memory.update_or_create_key("gemini-instructions", instructions);
+}</code></pre>
+
+    <!-- Code Block 2 -->
+    <pre><code class="lang-ts">async function main() {
+  const claudeKey = Fq.random();
+  // loads same memory from `address` config file
+  const memory = await AgentMemory.create(claudeKey);
+  const featureSpec = await memory.read("gemini-instructions");
+  const newFeature = claudeCodeProcess(featureSpec);
+  claudeMemory.update_or_create_key("new-feature", newFeature);
+}</code></pre>
+
+    <h2>Get involved 🤝</h2>
+    <p>
+      Private alpha starts next week. We’re letting in builders gradually, get on the
+      <a href="https://forms.gle/szVzhmpLdG6peDgH9">list</a> early.<br>
+      → <a href="https://forms.gle/szVzhmpLdG6peDgH9">Sign up for early access</a><br>
+      → <a href="https://x.com/untitled_ZK/">Follow along on X</a><br>
+      → Ask questions, share feedback. @untitled_zk on X, our DMs are open.
+    </p>
+  </main>
+
+  <!-- Minimal syntax highlighter -->
+  <script>
+    (function() {
+      const KEYWORDS = [
+        "const","let","var","function","async","await","return",
+        "if","else","for","while","switch","case","break","continue",
+        "new","class","extends","super","try","catch","finally",
+        "import","from","export","default","as","throw","true","false","null","undefined"
+      ];
+      const TYPES = [
+        "string","number","boolean","any","void","unknown","never",
+        "Promise","Array","Record","Map","Set"
+      ];
+
+      function escapeHtml(s) {
+        return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+      }
+
+      function colorizeNormal(seg) {
+        let s = escapeHtml(seg);
+        s = s.replace(/\b(?:0x[\da-fA-F]+|\d+(?:\.\d+)?(?:e[+-]?\d+)?)\b/g,
+          '<span class="tok-num">$&</span>');
+        const kw = new RegExp("\\b(" + KEYWORDS.join("|") + ")\\b","g");
+        s = s.replace(kw, '<span class="tok-kw">$1</span>');
+        const ty = new RegExp("\\b(" + TYPES.join("|") + "|[A-Z][A-Za-z0-9_]*)\\b","g");
+        s = s.replace(ty, '<span class="tok-type">$1</span>');
+        s = s.replace(/\b([A-Za-z_$][\w$]*)\s*(?=\()/g, '<span class="tok-func">$1</span>');
+        return s;
+      }
+
+      function highlight(code) {
+        let out = "";
+        let buf = "";
+        let i = 0;
+        const N = code.length;
+        let state = "NORMAL";
+        let quote = null;
+        let esc = false;
+
+        function flushBuf() {
+          if (buf) {
+            out += colorizeNormal(buf);
+            buf = "";
+          }
+        }
+
+        while (i < N) {
+          const ch = code[i];
+          const next = i + 1 < N ? code[i+1] : "";
+
+          if (state === "NORMAL") {
+            if (ch === "/" && next === "/") {
+              flushBuf();
+              out += '<span class="tok-com">//';
+              i += 2;
+              state = "IN_SL_COMMENT";
+              continue;
+            }
+            if (ch === "/" && next === "*") {
+              flushBuf();
+              out += '<span class="tok-com">/*';
+              i += 2;
+              state = "IN_ML_COMMENT";
+              continue;
+            }
+            if (ch === '"' || ch === "'" || ch === "`") {
+              flushBuf();
+              quote = ch;
+              esc = false;
+              out += '<span class="tok-str">' + escapeHtml(ch);
+              i++;
+              state = "IN_STRING";
+              continue;
+            }
+            buf += ch;
+            i++;
+            continue;
+          }
+
+          if (state === "IN_SL_COMMENT") {
+            if (ch === "\n") {
+              out += "</span>\n";
+              i++;
+              state = "NORMAL";
+            } else {
+              out += escapeHtml(ch);
+              i++;
+            }
+            continue;
+          }
+
+          if (state === "IN_ML_COMMENT") {
+            if (ch === "*" && next === "/") {
+              out += "*/</span>";
+              i += 2;
+              state = "NORMAL";
+            } else {
+              out += escapeHtml(ch);
+              i++;
+            }
+            continue;
+          }
+
+          if (state === "IN_STRING") {
+            if (!esc && ch === "\\") {
+              esc = true;
+              out += escapeHtml(ch);
+              i++;
+              continue;
+            }
+            if (!esc && ch === quote) {
+              out += escapeHtml(ch) + "</span>";
+              i++;
+              state = "NORMAL";
+              quote = null;
+              continue;
+            }
+            esc = false;
+            out += escapeHtml(ch);
+            i++;
+            continue;
+          }
+        }
+
+        if (state === "NORMAL") {
+          flushBuf();
+        } else {
+          out += "</span>";
+        }
+        return out;
+      }
+
+      document.querySelectorAll('pre > code.lang-ts').forEach(block => {
+        const raw = block.textContent.trim(); // trim empty lines
+        block.innerHTML = highlight(raw);
+      });
+    })();
+  </script>
+</body>
+</html>
