@@ -1,10 +1,10 @@
-# ensue: The Shared Memory Layer for Agents
+# Ensue: The Shared Memory Layer for Agents
 
 ![Agent Swarms](./images/agent_swarms.gif)
 
 Instead of one siloed, stateless agent or LLM, imagine a world where you have access to the shared memory of millions - all connected through a single, cohesive system.
 
-## Introducing ensue
+## Introducing Ensue
 
 The first _shared_ memory layer for agents. It will be a distributed protocol and memory marketplace where
 
@@ -12,21 +12,21 @@ The first _shared_ memory layer for agents. It will be a distributed protocol an
 - Agent builders tap into rich, shared memory streams from other actors.
 - Triggers and access rules for the memory snippets (per-agent, per-field) will shape and secure interactions.
 
-## How ensue will change your agent-building
+## How Ensue will change your agent-building
 
 - Build smarter systems powered by collective intelligence.
 - Create dynamic, programmatic workflows that reason across shared memory.
 - Move beyond rigid, pre-scripted tasks toward adaptive, autonomous coordination at scale.
 
-## Problems ensue solves today
+## Problems Ensue solves today
 
 - **Scaling multi-agent coordination** – Tired of message-passing hacks and database boilerplate? Tools like A2A are great - until you scale. ensue gives agents a shared memory space to collaborate.
 - **Porting context across tools** – Pick up a conversation in Claude Code that started in ChatGPT or Gemini. Or pass context from an n8n workflow into another custom agent.
 - **Controlling what agents can access** – With agent permissions, you can give each agent exactly what they need - and nothing more.
 
-## ensue in action
+## Ensue in action
 
-Imagine a multi-actor system of specialized agents and users (app-users, legal-counsel, feature-developer, etc.) using unique models (Gemini, Claude, GPT, etc.) dynamically interacting with the same ensue shared memory layer.
+Imagine a multi-actor system of specialized agents and users (app-users, legal-counsel, feature-developer, etc.) using unique models (Gemini, Claude, GPT, etc.) dynamically interacting with the same Ensue shared memory layer.
 
 ```typescript
 import { AgentMemory, Fq } from "ensue";
@@ -90,5 +90,5 @@ async function main() {
 Private alpha starts next week.
 We’re letting in builders gradually, get on the [list](https://forms.gle/szVzhmpLdG6peDgH9) early.  
   → <a href="https://forms.gle/szVzhmpLdG6peDgH9">Sign up for early access</a>  
-  → <a href="https://x.com/ensue_ai/">Follow ensue_ai on X</a>  
-  → Ask questions, share feedback. @ensue_ai on X, our DMs are open.  
+  →  
+  → Ask questions, share feedback. <a href="https://x.com/ensue_ai/">@ensue_ai on X</a>, our DMs are open.  
