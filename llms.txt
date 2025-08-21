@@ -13,6 +13,7 @@ Installation Guide (coming soon™): Install SDK for TypeScript, Python , and Ru
 
 
 ## Key Features of the Ensue Shared Memory Layer
+Instead of one siloed, stateless agent or LLM, imagine a world where you have access to the shared memory of millions - all connected through a single, cohesive system.
 [Portable Context] Move agent memory across applications, clouds, and blockchain networks without vendor lock-in
 [Programmable Access Control] Fine-grained permissions that control who can read, write, or mutate specific memory shards
 [Verifiable State](https://github.com/o1-labs/ensue-whitepaper): Cryptographically provable memory states that agents can trust and audit
@@ -24,14 +25,13 @@ Bug Hunter Demo (coming soon™) Find, report, and get paid out bug bounties wit
 Collective Recipe Prep Demo (coming soon™) Create and update recipes with friends interacting with the shared memory layer, built on Virtuals
 
 
-## Documentation (coming soon™)
-
-
 ## Community
 >GitHub Repository (coming soon™) Getting started, source code, issues, and contributions
+>[Readme](https://ensue.dev/readme): Code snippets, link to sign up for private alpha
 >[Telegram Community](https://t.me/ProjectUntitledZK_Chat): Live discussions with builders and maintainers
 >[hello@o1labs.org](mailto:hello@o1labs.org): Email this address if you want to inquire about partnering with the ensue team. 
->[X](https://x.com/ensue_ai): DM this account with any inquiries, or follow for updates in real-time on the evolution of shared memory.
+>[X](https://x.com/untitled_zk): DM this account with any inquiries, or follow for updates in real-time on the evolution of shared memory.
+
 
 
 
