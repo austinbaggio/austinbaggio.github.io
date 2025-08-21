@@ -41,7 +41,15 @@
       font-family: "Courier New", Courier, monospace;
       overflow-x: hidden; /* avoid horizontal scroll/clipping shifts */
     }
-
+    /* Fixed top-left logo (outside content flow) */
+    .logo-fixed {
+      position: fixed;
+      top: 30px;
+      left: 25px;
+      width: 80px;
+      height: auto;
+      z-index: 10;
+    }
     /* We switch between .center and .top based on whether content fits */
     main {
       width: 100%;
@@ -135,6 +143,7 @@
   </style>
 </head>
 <body>
+  <img class="logo-fixed" src="https://ensue.dev/images/ensue_header.svg" alt="ensue" />
 
   <main class="top" id="stage">
     <div class="container" id="container">
